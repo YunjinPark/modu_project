@@ -8,7 +8,7 @@ url_movie_base = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/sear
 class kobis:
     def __init__(self):
         self.movie_args = ['key', 'curPage', 'itemPerPage', 'movieNm', 'directorNm', 'openStartDt',
-                           'openEndDt', 'prtStartYear', 'prdtEndYear', 'repNationCd', 'movieTypeCd' ]
+                           'openEndDt', 'prdtStartYear', 'prdtEndYear', 'repNationCd', 'movieTypeCd' ]
 
     def query_movies(self, **kwargs):
         tmp_list = []
