@@ -1,9 +1,13 @@
-# modu_project
+# kobis_open_api
+영화 목록 가져오기 
 
 #### How to run
+```bash
 $ python kobis_open_api.py [option]
+```
 
 #### Options
+```bash
 kobis_open_api.py
 usage: kobis_open_api.py [-h] [--key KEY] [--curPage CURPAGE]
                          [--itemPerPage ITEMPERPAGE] [--movieNm MOVIENM]
@@ -37,3 +41,4 @@ optional arguments:
   --movieTypeCd MOVIETYPECD
                         N개의 영화유형코드로 조회할 수 있으며, 영화유형코드는 공통코드 조회 서비스에서 “2201”로서
                         조회된 영화유형코드(default: 전체)
+```
