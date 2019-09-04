@@ -1,5 +1,6 @@
 # kobis_open_api
 영화 목록 가져오기 
+http://www.kobis.or.kr/kobisopenapi/homepg/main/main.do 에서 키 발급받기 
 
 #### How to run
 ```bash
