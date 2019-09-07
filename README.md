@@ -1,6 +1,6 @@
 # kobis_open_api
-- kobis open api로 영화 목록 가져오기 
-http://www.kobis.or.kr/kobisopenapi/homepg/main/main.do 에서 키 발급받기 
+- kobis open api로 영화 목록 가져오기
+http://www.kobis.or.kr/kobisopenapi/homepg/main/main.do 에서 키 발급받기
 
 #### How to run
 ```bash
@@ -18,6 +18,7 @@ usage: kobis_open_api.py [-h] [--key KEY] [--curPage CURPAGE]
                          [--prdtEndYear PRDTENDYEAR]
                          [--repNationCd REPNATIONCD]
                          [--movieTypeCd MOVIETYPECD]
+                         [--numPages NUMPAGES]
 
 optional arguments:
   -h, --help                      show this help message and exit
@@ -32,4 +33,5 @@ optional arguments:
   --prdtEndYear PRDTENDYEAR       YYYY형식의 조회종료 제작연도를 입력
   --repNationCd REPNATIONCD       N개의 국적으로 조회할 수 있으며, 국적코드는 공통코드 조회 서비스에서 “2204” 로서 조회된 국적코드(default : 전체)
   --movieTypeCd MOVIETYPECD       N개의 영화유형코드로 조회할 수 있으며, 영화유형코드는 공통코드 조회 서비스에서 “2201”로서 조회된 영화유형코드(default: 전체)
+  --numPages NUMPAGES             현재 페이지(curPage)로부터 몇 페이지 조회할 것인지(default="1")  
 ```

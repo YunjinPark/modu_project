@@ -66,7 +66,7 @@ def get_argument_parser():
                         type=str)
     #
     parser.add_argument('--numPages',
-                        help='현재 페이지로부터 몇 페이지 조회할 것인지(default : “1”)',
+                        help='현재 페이지(curPage)로부터 몇 페이지 조회할 것인지(default : “1”)',
                         type=int)
 
     return {k: v for k, v in vars(parser.parse_args()).items() if v is not None}
