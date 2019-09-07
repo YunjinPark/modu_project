@@ -8,19 +8,15 @@ url_movie_base = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/sear
 class kobis:
     def __init__(self):
         self.movie_args = ['key', 'curPage', 'itemPerPage', 'movieNm', 'directorNm', 'openStartDt',
-                           'openEndDt', 'prtStartYear', 'prdtEndYear', 'repNationCd', 'movieTypeCd' ]
+                           'openEndDt', 'prdtStartYear', 'prdtEndYear', 'repNationCd', 'movieTypeCd' ]
 
     def query_movies(self, **kwargs):
-        tmp_list = []
-        for k, val in kwargs.items():
-            if k in self.movie_args:
-                tmp_list.append("{0}={1}".format(k, val))
-        return '&'.join(map(str, tmp_list))
+        return 'key='+kwargs['key'] +'&' + self.make_file_name(**kwargs)
 
     def make_file_name(self, **kwargs):
         tmp_list = []
         for k, val in kwargs.items():
-            if k != 'key':
+            if k != 'key' and k in self.movie_args:
                 tmp_list.append("{0}={1}".format(k, val))
         return '&'.join(map(str, tmp_list))
 
@@ -69,15 +65,22 @@ def get_argument_parser():
                         help='N개의 영화유형코드로 조회할 수 있으며, 영화유형코드는 공통코드 조회 서비스에서 “2201”로서 조회된 영화유형코드(default: 전체)',
                         type=str)
     #
+    parser.add_argument('--numPages',
+                        help='현재 페이지로부터 몇 페이지 조회할 것인지(default : “1”)',
+                        type=int)
+
     return {k: v for k, v in vars(parser.parse_args()).items() if v is not None}
 
 
 def main():
     k = kobis()
     args = get_argument_parser()
-    qr = k.query_movies(**args)    # 입력값으로 query 생성
-    movie_list = k.req(url_movie_base, qr)    # 데이터 받아오기
-    k.save('./data/movie_list/', k.make_file_name(**args), movie_list)    #데이터 저장
-
+    numPages = 1 if 'numPages' not in args else args['numPages']
+    args['curPage'] = 1 if 'curPage' not in args else int(args['curPage'])
+    for _ in range(numPages):
+        qr = k.query_movies(**args)    # 입력값으로 query 생성
+        movie_list = k.req(url_movie_base, qr)    # 데이터 받아오기
+        k.save('./data/movie_list/', k.make_file_name(**args), movie_list)    #데이터 저장
+        args['curPage'] += 1
 if __name__ == '__main__':
     main()
