@@ -37,7 +37,7 @@ optional arguments:
 ```
 
 ## postagging_for_wordvec.py
-wordvector를 학습하기 위해 알맞는 형태로 만드는 파일
+wordvector를 학습하기 위해 알맞는 형태로 만드는 파일.
 1문장으로 인식된 것이 1줄에 입력 되도록 함.
 
 예시)
