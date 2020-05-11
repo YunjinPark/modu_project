@@ -68,3 +68,5 @@ attributes 1, 2: '다큐멘터리','멜로로맨스','서부극(웨스턴)','범
               '애니메이션','사극' 중 2개  
               
 ![Alt Text](./image/weat_score_1.png)
+
+weat score 참고 문헌 :  https://arxiv.org/pdf/1608.07187.pdf
